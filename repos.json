@@ -29,8 +29,28 @@
             "url": "https://github.com/7aske/dotfiles",
             "paths": [
                 {
+                    "path": "conky/conky.conf",
+                    "pathname": "/conky"
+                },
+                {
+                    "path": "dunst/dunstrc",
+                    "pathname": "/dunst"
+                },
+                {
                     "path": "i3/config",
                     "pathname": "/i3"
+                },
+                {
+                    "path": "i3blocks/config",
+                    "pathname": "/i3blocks"
+                },
+                {
+                    "path": "i3status/config",
+                    "pathname": "/i3status"
+                },
+                {
+                    "path": "neofetch/config.conf",
+                    "pathname": "/neofetch"
                 },
                 {
                     "path": "nvim/init.vim",
@@ -41,7 +61,7 @@
                     "pathname": "/vscode"
                 },
                 {
-                    "path": "VSCodium/User/settings.json",
+                    "path": "VSCodium/User/keybindings.json",
                     "pathname": "/vscode-keys"
                 },
                 {
@@ -54,6 +74,18 @@
             "name": "utils-sh",
             "url": "https://github.com/7aske/utils-sh",
             "paths": [
+                {
+                    "path": "clean.sh",
+                    "pathname": "/clean"
+                },
+                {
+                    "path": "addmode.sh",
+                    "pathname": "/addmode"
+                },
+                {
+                    "path": "rcode.sh",
+                    "pathname": "/rcode"
+                },
                 {
                     "path": "https-ssh-git.sh",
                     "pathname": "/gitssh"

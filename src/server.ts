@@ -1,6 +1,5 @@
 import { createServer } from "http";
 import { readFile } from "fs";
-import { extname } from "path";
 import { initPublicFolder, getPath, getAllPaths, updateRepos } from "./sh";
 
 const msg404 = "echo \"404 NOT FOUND\"";
@@ -10,26 +9,6 @@ process.on("unhandledRejection", err => console.error("unhandledRejection", err)
 
 const port: number = process.env.PORT ? parseInt(process.env.PORT) : 8080;
 
-/**
- * Common MIME types based on extension
- */
-const mimeTypes: { [key: string]: string } = {
-	".html": "text/html",
-	".js": "text/javascript",
-	".css": "text/css",
-	".json": "application/json",
-	".png": "image/png",
-	".jpg": "image/jpg",
-	".gif": "image/gif",
-	".wav": "audio/wav",
-	".mp4": "video/mp4",
-	".woff": "application/font-woff",
-	".ttf": "application/font-ttf",
-	".eot": "application/vnd.ms-fontobject",
-	".otf": "application/font-otf",
-	".svg": "application/image/svg+xml",
-	".ico": "icon/x-icon",
-};
 
 const server = createServer(function (request, response) {
 
@@ -59,11 +38,6 @@ const server = createServer(function (request, response) {
 		}
 
 		let mediaType = "text/html";
-		const ext = extname(filepath!);
-		if (ext.length > 0 && mimeTypes.hasOwnProperty(ext)) {
-			mediaType = mimeTypes[ext];
-		}
-
 		response.setHeader("Content-Type", mediaType);
 		response.end(data);
 	});

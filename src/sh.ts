@@ -48,10 +48,12 @@ export const getPath = (pathname: string): string | null => {
 
 export const getAllPaths = (): string => {
 	let out = "";
-	repos.forEach(repo => {
-		repo.paths.forEach(p => {
+	repos.sort((a,b)=> a.paths.length - b.paths.length).forEach(repo => {
+		out += repo.url + "\n";
+		repo.paths.sort((a,b)=> a.pathname.localeCompare(b.pathname)).forEach(p => {
 			out += `${p.pathname.padEnd(14, " ")} -> ${repo.name}/${p.path}\n`;
 		});
+		out += "\n";
 	});
 	return out;
 };
