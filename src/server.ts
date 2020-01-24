@@ -11,8 +11,8 @@ const port: number = process.env.PORT ? parseInt(process.env.PORT) : 8080;
 
 
 const server = createServer(function (request, response) {
-
-	console.log(request.method + " " + request.url);
+	const isTerm = request.headers["user-agent"]?.startsWith("Wget") || request.headers["user-agent"]?.startsWith("curl");
+	console.log("\u001b[1;34m" + request.headers["user-agent"] + " \u001b[1;32m" + request.method + " \u001b[1;34m" + request.url+"\u001b[0m ");
 	if (!request.url) {
 		response.statusCode = 404;
 		return response.end(msg404);
@@ -20,7 +20,7 @@ const server = createServer(function (request, response) {
 
 	if (request.url === "/all") {
 		response.setHeader("Content-Type", "text/plain");
-		response.end(getAllPaths());
+		response.end(getAllPaths({color: isTerm}));
 		return;
 	}
 
@@ -51,6 +51,6 @@ server.on("clientError", function onClientError(err, socket) {
 server.listen(port, "0.0.0.0", function () {
 	initPublicFolder();
 	const updateInterval = setInterval(updateRepos, 1000 * 86400);
-	console.log("👨‍🔧Server started on port " + port);
+	console.log("👨‍🔧\u001b[1;32mServer started on port " + port + "\u001b[0m");
 });
 

@@ -1,0 +1,54 @@
+repos:
+  - name: autosetup
+    remote: https://github.com/7aske/autosetup
+    files:
+      - path: autoinstall.sh
+        desc: arch packages and gui install
+        url: /install
+  - name: bashrc
+    remote: https://github.com/7aske/bashrc
+    files:
+      - path: bashrc.sh
+        desc: bashrc repo setup script
+        url: /
+      - path: .bashrc
+        desc: bashrc for sourcing into bash
+        url: /bashrc
+  - name: dotfiles
+    remote: https://github.com/7aske/dotfiles
+    files:
+      - path: conky/conky.conf
+        url: /conky
+      - path: dunst/dunstrc
+        url: /dunst
+      - path: i3/config
+        url: /i3
+      - path: i3blocks/config
+        url: /i3blocks
+      - path: i3status/config
+        url: /i3status
+      - path: neofetch/config.conf
+        url: /neofetch
+      - path: nvim/init.vim
+        url: /nvim
+      - path: VSCodium/User/settings.json
+        url: /vscode
+      - path: VSCodium/User/keybindings.json
+        url: /vscode-keys
+      - path: tmux/.tmux.conf
+        url: /tmux
+  - name: utils-sh
+    remote: https://github.com/7aske/utils-sh
+    files:
+      - path: clean.sh
+        desc: cleans build files from CODE dir
+        url: /clean
+      - path: addmode.sh
+        desc: 1920x1080 res for VBox VM's
+        url: /addmode
+      - path: rcode.sh
+        desc: rsync CODE projects over network
+        url: /rcode
+      - path: https-ssh-git.sh
+        desc: repo remote convert https to ssh
+        url: /gitssh
