@@ -74,7 +74,7 @@ server.on("clientError", function onClientError(err, socket) {
 	socket.end("HTTP/1.1 400 Bad Request\r\n\r\n");
 });
 
-server.listen(port, "127.0.0.1", function () {
+server.listen(port, "0.0.0.0", function () {
 	initPublicFolder();
 	const updateInterval = setInterval(updateRepos, 1000 * 86400);
 	console.log("👨‍🔧Server started on port " + port);
