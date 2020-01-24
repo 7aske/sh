@@ -2,7 +2,7 @@
     "name": "sh",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "dist/server.js",
     "author": "Nikola Tasic",
     "scripts": {
         "start": "node dist/server.js",
