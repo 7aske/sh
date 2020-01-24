@@ -1,0 +1,64 @@
+{
+    "repos": [
+        {
+            "name": "autosetup",
+            "url": "https://github.com/7aske/autosetup",
+            "paths": [
+                {
+                    "path": "autoinstall.sh",
+                    "pathname": "/install"
+                }
+            ]
+        },
+        {
+            "name": "bashrc",
+            "url": "https://github.com/7aske/bashrc",
+            "paths": [
+                {
+                    "path": "bashrc.sh",
+                    "pathname": "/"
+                },
+                {
+                    "path": ".bashrc",
+                    "pathname": "/bashrc"
+                }
+            ]
+        },
+        {
+            "name": "dotfiles",
+            "url": "https://github.com/7aske/dotfiles",
+            "paths": [
+                {
+                    "path": "i3/config",
+                    "pathname": "/i3"
+                },
+                {
+                    "path": "nvim/init.vim",
+                    "pathname": "/nvim"
+                },
+                {
+                    "path": "VSCodium/User/settings.json",
+                    "pathname": "/vscode"
+                },
+                {
+                    "path": "VSCodium/User/settings.json",
+                    "pathname": "/vscode-keys"
+                },
+                {
+                    "path": "tmux/.tmux.conf",
+                    "pathname": "/tmux"
+                }
+            ]
+        },
+        {
+            "name": "utils-sh",
+            "url": "https://github.com/7aske/utils-sh",
+            "paths": [
+                {
+                    "path": "https-ssh-git.sh",
+                    "pathname": "/gitssh"
+                }
+            ]
+        }
+    ]
+}

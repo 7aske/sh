@@ -1,0 +1,23 @@
+{
+    "name": "sh",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "author": "Nikola Tasic",
+    "scripts": {
+        "start": "node dist/server.js",
+        "build": "tsc"
+    },
+    "keywords": [
+        "sh",
+        "fileserver",
+        "repository"
+    ],
+    "license": "ISC",
+    "dependencies": {
+        "typescript": "^3.7.5"
+    },
+    "devDependencies": {
+        "@types/node": "^13.5.0"
+    }
+}
