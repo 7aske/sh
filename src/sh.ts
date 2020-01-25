@@ -49,9 +49,12 @@ export const getPath = (url: string): string | null => {
 export const getAllPaths = (options?: ShResponseOptions): string => {
 	let out = "";
 	if (options && options.color) {
-		out = `\u001b[1;32msh\u001b[0m - ${name}\u001b[0m - \u001b[1;32m${github}\u001b[0m\n`;
+		out = `\u001b[1;32m${options.host ? options.host : "sh"}\u001b[0m - ${name}\u001b[0m - \u001b[1;32m${github}\u001b[0m\n`;
 	} else {
-		out = `sh - ${name} - ${github}\n`;
+		out = `${options && options.host ? options.host : "sh"} - ${name} - ${github}\n`;
+	}
+	if (options && options.host) {
+		out += getFigletText(options?.host, options?.color);
 	}
 	repos.sort((a, b) => a.files.length - b.files.length).forEach(repo => {
 		if (options && options.color) {
@@ -69,5 +72,15 @@ export const getAllPaths = (options?: ShResponseOptions): string => {
 		out += "\n";
 	});
 	return out;
+};
+
+const getFigletText = (text: string, color?: boolean): string => {
+	let out = execSync(`figlet "${text}"`, {env: process.env, stdio: ["ignore", "pipe", "ignore"]}).toString();
+	if (color) {
+		return "\u001b[1;32m" + out + "\u001b[0m";
+	} else {
+		return out;
+	}
+
 };
 

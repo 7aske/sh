@@ -12,7 +12,7 @@ const port: number = process.env.PORT ? parseInt(process.env.PORT) : 8080;
 
 const server = createServer(function (request, response) {
 	const isTerm = request.headers["user-agent"]?.startsWith("Wget") || request.headers["user-agent"]?.startsWith("curl");
-	console.log("\u001b[1;34m" + request.headers["user-agent"] + " \u001b[1;32m" + request.method + " \u001b[1;34m" + request.url+"\u001b[0m ");
+	console.log("\u001b[1;34m" + request.headers["user-agent"] + " \u001b[1;32m" + request.method + " \u001b[1;34m" + request.url + "\u001b[0m ");
 	if (!request.url) {
 		response.statusCode = 404;
 		return response.end(msg404);
@@ -20,7 +20,7 @@ const server = createServer(function (request, response) {
 
 	if (request.url === "/all") {
 		response.setHeader("Content-Type", "text/plain");
-		response.end(getAllPaths({color: isTerm}));
+		response.end(getAllPaths({color: isTerm, host: request.headers.host}));
 		return;
 	}
 
