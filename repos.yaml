@@ -3,8 +3,17 @@ repos:
     remote: https://github.com/7aske/autosetup
     files:
       - path: autoinstall.sh
-        desc: arch packages and gui install
+        desc: installs basic cli packages and personal dotfiles
         url: /install
+      - path: autoinstallcode.sh
+        desc: installs programming related toolchains and editors
+        url: /install-code
+      - path: autoinstallgui.sh
+        desc: installs i3 and other gui utilites
+        url: /install-gui
+      - path: autoinstallvbox.sh
+        desc: installs vbox guest packages
+        url: /install-vbox
   - name: bashrc
     remote: https://github.com/7aske/bashrc
     files:
