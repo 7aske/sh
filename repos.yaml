@@ -49,6 +49,9 @@ repos:
   - name: utils-sh
     remote: https://github.com/7aske/utils-sh
     files:
+      - path: setwal.sh
+        desc: sets the wallpaper and theme using pywal 
+        url: /setwal
       - path: clean.sh
         desc: cleans build and cache files from CODE dir
         url: /clean
