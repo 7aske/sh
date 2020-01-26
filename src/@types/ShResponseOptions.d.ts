@@ -1,3 +1,5 @@
-export type ShResponseOptions = {
-	color?: boolean;
+type ShResponseOptions = {
+	term?: boolean;
+	plain?: boolean;
+	host?: string;
 }

@@ -1,7 +1,6 @@
-import { RepoFile } from "./RepoFile";
-
-export type Repo =  {
+type RepoType = {
 	name: string;
 	remote: string;
-	files: RepoFile[];
+	files: RepoFileType[];
 }
+

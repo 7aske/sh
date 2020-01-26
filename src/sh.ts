@@ -2,18 +2,21 @@ import { readFileSync, existsSync, mkdirSync } from "fs";
 import { join } from "path";
 import { execSync } from "child_process";
 import YAML from "yaml";
-import { Repo } from "./@types/Repo";
-import { ShResponseOptions } from "./@types/ShResponseOptions";
+import fmt from "./fmt";
+import Repo from "./class/Repo";
 
 export const publicFolder: string = join(process.cwd(), "shs");
-export const name = "Nikola Tasic";
-export const github = "https://github.com/7aske";
+
 
 let repos: Repo[] = [];
 
 export const initPublicFolder = () => {
 	try {
-		repos = YAML.parse(readFileSync("repos.yaml", {encoding: "utf8"})).repos;
+		let input: RepoType[] = YAML.parse(readFileSync("repos.yaml", {encoding: "utf8"})).repos;
+		input.forEach(repo => {
+			let newRepo = new Repo(repo);
+			repos.push(newRepo);
+		});
 	} catch (e) {
 		console.error(e);
 		process.exit(1);
@@ -47,27 +50,16 @@ export const getPath = (url: string): string | null => {
 };
 
 export const getAllPaths = (options?: ShResponseOptions): string => {
-	let out = "";
-	if (options && options.color) {
-		out = `\u001b[1;32msh\u001b[0m - ${name}\u001b[0m - \u001b[1;32m${github}\u001b[0m\n`;
-	} else {
-		out = `sh - ${name} - ${github}\n`;
-	}
-	repos.sort((a, b) => a.files.length - b.files.length).forEach(repo => {
-		if (options && options.color) {
-			out += "\u001b[1;4;31m" + repo.remote + "\u001b[0m" + "\n";
+	if (options) {
+		if (options.plain) {
+			return fmt.plainFmt(repos, options.host);
+		} else if (options.term) {
+			return fmt.ansiFmt(repos, options.host);
 		} else {
-			out += repo.remote + "\n";
+			return fmt.webFmt(repos, options.host);
 		}
-		repo.files.sort((a, b) => a.url.localeCompare(b.url)).forEach(p => {
-			if (options && options.color) {
-				out += `${"\u001b[1;32m" + p.url.padEnd(12, " ") + "\u001b[0m"} -> ${p.path.padEnd(40, " ")}${p.desc ? "\n\u001b[1;3;34m" + p.desc.substring(0, 78) + "\u001b[0m" : ""}\n`;
-			} else {
-				out += `${p.url.padEnd(12, " ")} -> ${p.path.padEnd(40, " ")}${p.desc ? "\n" + p.desc.substring(0, 78) : ""}\n`;
-			}
-		});
-		out += "\n";
-	});
-	return out;
+	} else {
+		return fmt.plainFmt(repos);
+	}
 };
 

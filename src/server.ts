@@ -1,6 +1,8 @@
 import { createServer } from "http";
 import { readFile } from "fs";
-import { initPublicFolder, getPath, getAllPaths, updateRepos } from "./sh";
+import { getAllPaths, getPath, initPublicFolder, updateRepos } from "./sh";
+import { ANSIAttr } from "./@types/Colors";
+import c from "./colors/colors";
 
 const msg404 = "echo \"404 NOT FOUND\"";
 
@@ -11,16 +13,22 @@ const port: number = process.env.PORT ? parseInt(process.env.PORT) : 8080;
 
 
 const server = createServer(function (request, response) {
-	const isTerm = request.headers["user-agent"]?.startsWith("Wget") || request.headers["user-agent"]?.startsWith("curl");
-	console.log("\u001b[1;34m" + request.headers["user-agent"] + " \u001b[1;32m" + request.method + " \u001b[1;34m" + request.url+"\u001b[0m ");
+	const term = request.headers["user-agent"]?.startsWith("Wget") || request.headers["user-agent"]?.startsWith("curl");
+	const host = request.headers.host;
+	const plain = request.headers.accept === "text/plain";
+	console.log(c.aBlue("" + request.headers["user-agent"], [ANSIAttr.BOLD]), c.aGreen("" + request.method, [ANSIAttr.BOLD]), c.aBlue("" + request.url, [ANSIAttr.BOLD]));
 	if (!request.url) {
 		response.statusCode = 404;
 		return response.end(msg404);
 	}
 
 	if (request.url === "/all") {
-		response.setHeader("Content-Type", "text/plain");
-		response.end(getAllPaths({color: isTerm}));
+		term ?
+			response.setHeader("Content-Type", "text/plain")
+			:
+			response.setHeader("Content-Type", "text/html");
+
+		response.end(getAllPaths({term, host, plain}));
 		return;
 	}
 
