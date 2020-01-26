@@ -3,26 +3,26 @@ repos:
     remote: https://github.com/7aske/autosetup
     files:
       - path: autoinstall.sh
-        desc: installs basic cli packages and personal dotfiles
+        desc: installs basic cli tools and personal dotfiles to a blank arch based install
         url: /install
       - path: autoinstallcode.sh
-        desc: installs programming related toolchains and editors
+        desc: installs programming related toolchains, compilers, utilites and editors
         url: /install-code
       - path: autoinstallgui.sh
-        desc: installs i3 and other gui utilites
+        desc: installs i3-gaps and other gui stuff like web browser and file managers
         url: /install-gui
       - path: autoinstallvbox.sh
-        desc: installs vbox guest packages
+        desc: installs virtualbox guest utilites for usage in vm
         url: /install-vbox
   - name: bashrc
     remote: https://github.com/7aske/bashrc
     files:
       - path: bashrc.sh
-        desc: bashrc repo setup script
-        url: /
-      - path: .bashrc
-        desc: bashrc for sourcing into bash
+        desc: bashrc repository setup script (includes .bashrc)
         url: /bashrc
+      - path: .bashrc
+        desc: bashrc with personal aliases and functions for sourcing into bash
+        url: /.bashrc
   - name: dotfiles
     remote: https://github.com/7aske/dotfiles
     files:
@@ -50,14 +50,14 @@ repos:
     remote: https://github.com/7aske/utils-sh
     files:
       - path: clean.sh
-        desc: cleans build files from CODE dir
+        desc: cleans build and cache files from CODE dir
         url: /clean
       - path: addmode.sh
-        desc: 1920x1080 res for VBox VM's
+        desc: sets virtualbox vm resolution to 1920x1080
         url: /addmode
       - path: rcode.sh
         desc: rsync CODE projects over network
         url: /rcode
       - path: https-ssh-git.sh
-        desc: repo remote convert https to ssh
+        desc: convert https git remote to a ssh one
         url: /gitssh

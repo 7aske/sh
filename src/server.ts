@@ -22,7 +22,7 @@ const server = createServer(function (request, response) {
 		return response.end(msg404);
 	}
 
-	if (request.url === "/all") {
+	if (request.url === "/") {
 		term ?
 			response.setHeader("Content-Type", "text/plain")
 			:

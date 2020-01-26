@@ -4,7 +4,7 @@ import c from "./colors/colors";
 import { ANSIAttr } from "./@types/Colors";
 
 export const name = process.env.NAME ? process.env.NAME : "Nikola Tasic";
-export const social = process.env.SOCIAL ? process.env.SOCIAL : "https://social.com/7aske";
+export const social = process.env.SOCIAL ? process.env.SOCIAL : "https://github.com/7aske";
 
 
 const ansiFmt = (repos: Repo[], host?: string): string => {
