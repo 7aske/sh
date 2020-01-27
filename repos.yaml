@@ -8,6 +8,9 @@ repos:
       - path: autoinstallcode.sh
         desc: installs programming related toolchains, compilers, utilites and editors
         url: /install-code
+      - path: autoinstalldo.sh
+        desc: installs essentials for digital ocean droplets
+        url: /install-do
       - path: autoinstallgui.sh
         desc: installs i3-gaps and other gui stuff like web browser and file managers
         url: /install-gui
