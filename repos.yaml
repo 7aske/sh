@@ -3,7 +3,7 @@ repos:
     remote: https://github.com/7aske/autosetup
     files:
       - path: autoinstall.sh
-        desc: installs basic cli tools and personal dotfiles to a blank arch based install
+        desc: sets up debian or arch based distro with my config and/or ui
         url: /install
       - path: autoinstalldo.sh
         desc: installs essentials for digital ocean droplets
