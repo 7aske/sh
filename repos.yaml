@@ -23,6 +23,8 @@ repos:
   - name: dotfiles
     remote: https://github.com/7aske/dotfiles
     files:
+      - path: bug.n/Config.ini
+        url: /bug.n
       - path: conky/conky.conf
         url: /conky
       - path: dunst/dunstrc
@@ -43,21 +45,51 @@ repos:
         url: /vscode-keys
       - path: tmux/.tmux.conf
         url: /tmux
-  - name: utils-sh
-    remote: https://github.com/7aske/utils-sh
+      - path: wal/templates/colors-rofi-dark.rasi
+        desc: rofi compatible template for wal
+        url: /wal-rofi
+      - path: rofi/config.rasi
+        url: /rofi
+      - path: sxiv/exec/key-handler
+        url: /sxiv
+      - path: .profile
+        url: /.profile
+      - path: .xprofile
+        url: /.xprofile
+
+  - name: scripts
+    remote: https://github.com/7aske/scripts
     files:
-      - path: setwal.sh
+      - path: src/setwal.sh
         desc: sets the wallpaper and theme using pywal 
         url: /setwal
-      - path: clean.sh
+      - path: src/codeclean.sh
         desc: cleans build and cache files from CODE dir
-        url: /clean
-      - path: addmode.sh
-        desc: sets virtualbox vm resolution to 1920x1080
-        url: /addmode
-      - path: rcode.sh
+        url: /codeclean
+      - path: src/codeopen.sh
+        desc: open desired CODE repo in a specific editor
+        url: /codeopen
+      - path: src/hdmi.sh
+        desc: external output switcher for laptops
+        url: /hdmi
+      - path: src/kblang.sh
+        desc: dmenu keyboard locale switcher
+        url: /kblang
+      - path: src/xaddmode.sh
+        desc: scripts to add custom modes to xrandr
+        url: /xaddmode
+      - path: src/rcode.sh
         desc: rsync CODE projects over network
         url: /rcode
-      - path: https-ssh-git.sh
+      - path: src/https-ssh-git.sh
         desc: convert https git remote to a ssh one
         url: /gitssh
+      - path: src/startup.sh
+        desc: .xprofile startup programs manager
+        url: /startup
+      - path: src/i3btf.sh
+        desc: toggles program to and from scratchpad in i3
+        url: /i3btf
+      - path: src/blurlock.sh
+        desc: pretty i3 lockscreen using betterlockscreen
+        url: /blurlock
