@@ -25,32 +25,32 @@ repos:
     files:
       - path: bug.n/Config.ini
         url: /bug.n
-      - path: conky/conky.conf
+      - path: .config/conky/conky.conf
         url: /conky
-      - path: dunst/dunstrc
+      - path: .config/dunst/dunstrc
         url: /dunst
-      - path: i3/config
+      - path: .config/i3/config
         url: /i3
-      - path: i3blocks/config
+      - path: .config/i3blocks/config
         url: /i3blocks
-      - path: i3status/config
+      - path: .config/i3status/config
         url: /i3status
-      - path: neofetch/config.conf
+      - path: .config/neofetch/config.conf
         url: /neofetch
-      - path: nvim/init.vim
+      - path: .config/nvim/init.vim
         url: /nvim
-      - path: VSCodium/User/settings.json
+      - path: .config/VSCodium/User/settings.json
         url: /vscode
-      - path: VSCodium/User/keybindings.json
+      - path: .config/VSCodium/User/keybindings.json
         url: /vscode-keys
-      - path: tmux/.tmux.conf
+      - path: .config/tmux/.tmux.conf
         url: /tmux
-      - path: wal/templates/colors-rofi-dark.rasi
+      - path: .config/wal/templates/colors-rofi-dark.rasi
         desc: rofi compatible template for wal
         url: /wal-rofi
-      - path: rofi/config.rasi
+      - path: .config/rofi/config.rasi
         url: /rofi
-      - path: sxiv/exec/key-handler
+      - path: .config/sxiv/exec/key-handler
         url: /sxiv
       - path: .profile
         url: /.profile
