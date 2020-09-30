@@ -1,40 +1,21 @@
 repos:
-  - name: autosetup
-    remote: https://github.com/7aske/autosetup
-    files:
-      - path: autoinstall.sh
-        desc: sets up debian or arch based distro with my config and/or ui
-        url: /install
-      - path: autoinstalldo.sh
-        desc: installs essentials for digital ocean droplets
-        url: /install-do
-      - path: autoinstallvbox.sh
-        desc: installs virtualbox guest utilites for usage in vm
-        url: /install-vbox
-  - name: bashrc
-    remote: https://github.com/7aske/bashrc
-    files:
-      - path: bashrc.sh
-        desc: bashrc repository setup script (includes .bashrc)
-        url: /bashrc
-      - path: .bashrc
-        desc: bashrc with personal aliases and functions for sourcing into bash
-        url: /.bashrc
   - name: dotfiles
     remote: https://github.com/7aske/dotfiles
     files:
-      - path: bug.n/Config.ini
+      - path: .other/bug.n/Config.ini
         url: /bug.n
-      - path: .config/conky/conky.conf
-        url: /conky
+      - path: .config/compton/compton.conf
+        url: /picom
       - path: .config/dunst/dunstrc
         url: /dunst
       - path: .config/i3/config
         url: /i3
       - path: .config/i3blocks/config
         url: /i3blocks
-      - path: .config/i3status/config
-        url: /i3status
+      - path: .config/.ideavimrc
+        url: /ideavimrc
+      - path: .config/kitty/kitty.conf
+        url: /kitty
       - path: .config/neofetch/config.conf
         url: /neofetch
       - path: .config/nvim/init.vim
@@ -45,23 +26,26 @@ repos:
         url: /vscode-keys
       - path: .config/tmux/.tmux.conf
         url: /tmux
-      - path: .config/wal/templates/colors-rofi-dark.rasi
-        desc: rofi compatible template for wal
-        url: /wal-rofi
-      - path: .config/rofi/config.rasi
-        url: /rofi
+      - path: .config/ranger/rc.conf
+        url: /ranger
       - path: .config/sxiv/exec/key-handler
         url: /sxiv
+      - path: .config/zsh/.zshrc
+        url: /zsh
       - path: .profile
         url: /.profile
       - path: .xprofile
         url: /.xprofile
+      - path: .zprofile
+        url: /.zprofile
+      - path: .config/Xresources
+        url: /Xresources
 
   - name: scripts
     remote: https://github.com/7aske/scripts
     files:
       - path: src/setwal.sh
-        desc: sets the wallpaper and theme using pywal 
+        desc: sets the wallpaper and theme using pywal
         url: /setwal
       - path: src/codeclean.sh
         desc: cleans build and cache files from CODE dir
@@ -90,6 +74,15 @@ repos:
       - path: src/i3btf.sh
         desc: toggles program to and from scratchpad in i3
         url: /i3btf
-      - path: src/blurlock.sh
-        desc: pretty i3 lockscreen using betterlockscreen
-        url: /blurlock
+      - path: src/i3wss.sh
+        desc: workspace switcher for i3
+        url: /i3wss
+      - path: src/xpick.sh
+        desc: color picker for X
+        url: /xpick
+      - path: src/pacup.sh
+        desc: yay wrapper for i3block updates notification
+        url: /pacup
+      - path: src/npile.sh
+        desc: auto compiler
+        url: /npile
